@@ -1,7 +1,7 @@
 {
   "name": "react-native-neon-android",
   "version": "1.0.0",
-  "description": "React Native package to take photos using custom camera or gallery in android.",
+  "description": "React Native package to take photos using custom camera or custom gallery in android.",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -11,12 +11,12 @@
   "author": "Rajeev Kumar",
   "keywords": [
     "react-native",
-    "react-native-neon-module",
-    "react_native_neon_module",
+    "react-native-neon-android",
     "react",
     "native",
     "image",
-    "camera"
+    "camera",
+    "gallery"
   ],
   "contributors": [
     {
