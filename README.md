@@ -479,3 +479,6 @@ const styles = StyleSheet.create({
     }
 });
 ```
+
+## Author:
+      Rajeev Kumar
