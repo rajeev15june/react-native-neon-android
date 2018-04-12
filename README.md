@@ -481,4 +481,4 @@ const styles = StyleSheet.create({
 ```
 
 ## Author:
-- Rajeev Kumar
+- **Rajeev Kumar**
