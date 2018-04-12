@@ -176,6 +176,7 @@ Details of imageTag:
 | location | object | Location used in android |
 
 ## Usage Example
+- Example Project [GitHub Link](https://github.com/rajeev15june/neon-module-example).
 ```ruby
 import React, {Component} from 'react';
 import {
@@ -185,26 +186,7 @@ import {
     TouchableNativeFeedback, FlatList, Image, ScrollView
 } from 'react-native';
 import NeonAndroid from 'react-native-neon-android';
-
-let fileInfo = {
-    dateTimeTaken: "1522229825513",
-    fileCount: 0,
-    filePath: "https://images.unsplash.com/photo-1441742917377-57f78ee0e582?h=1024",
-    selected: false,
-    source: "PHONE_GALLERY",
-    type: "IMAGE",
-    latitude: "",
-    longitude: "",
-    fileName: "",
-    displayName: "",
-    fileTag: {
-        mandatory: false,
-        numberOfPhotos: 1,
-        tagId: "3",
-        tagName: "Tag3",
-        location: null,
-    }
-};
+import * as Constants from './Constants';
 
 let imageTagList = [
     {
@@ -265,20 +247,20 @@ export default class App extends Component<Props> {
     openNeon(position) {
         let params = neonParams;
         switch (position) {
-            case 1:
+            case Constants.OPEN_NEUTRAL:
                 params.profileTagName = 'Cover';
                 params.hasOnlyProfileTag = true;
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
                 NeonAndroid.collectPhotos(0, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
-            case 2:
+            case Constants.OPEN_CAMERA:
                 params.cameraOrientation = 1;
                 params.flashEnabled = true;
                 params.cameraSwitchingEnabled = true;
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
                 NeonAndroid.collectPhotos(1, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
-            case 3:
+            case Constants.OPEN_CAMERA_PRIORITY:
                 params.cameraOrientation = 1;
                 params.flashEnabled = true;
                 params.cameraSwitchingEnabled = true;
@@ -289,7 +271,7 @@ export default class App extends Component<Props> {
                 params.imageTagListJson = JSON.stringify(imageTagList);
                 NeonAndroid.collectPhotos(1, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
-            case 4:
+            case Constants.OPEN_GALLERY_FOLDERS:
                 params.galleryToCameraSwitchEnabled = false;
                 params.numberOfPhotos = 0;
                 params.enableFolderStructure = true;
@@ -297,7 +279,7 @@ export default class App extends Component<Props> {
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
                 NeonAndroid.collectPhotos(2, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
-            case 5:
+            case Constants.OPEN_GALLERY_FOLDERS_PRIORITY:
                 params.galleryToCameraSwitchEnabled = true;
                 params.numberOfPhotos = 0;
                 params.enableFolderStructure = true;
@@ -305,25 +287,27 @@ export default class App extends Component<Props> {
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
                 NeonAndroid.collectPhotos(2, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
-            case 6:
+            case Constants.OPEN_GALLERY_FILES:
                 params.galleryToCameraSwitchEnabled = false;
                 params.numberOfPhotos = 2;
                 params.enableFolderStructure = false;
                 params.libraryMode = 1;
+                params.galleryViewType = 0;
                 params.tagEnabled = true;
                 params.imageTagListJson = JSON.stringify(imageTagList);
                 NeonAndroid.collectPhotos(2, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
-            case 7:
+            case Constants.OPEN_GALLERY_FILES_PRIORITY:
                 params.galleryToCameraSwitchEnabled = true;
                 params.numberOfPhotos = 0;
+                params.galleryViewType = 0;
                 params.enableFolderStructure = false;
                 params.imageTagListJson = JSON.stringify(imageTagList);
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
                 NeonAndroid.collectPhotos(2, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
 
-            case 8:
+            case Constants.OPEN_GALLERY_HORIZONTAL:
                 params.galleryToCameraSwitchEnabled = false;
                 params.numberOfPhotos = 0;
                 params.galleryViewType = 1;
@@ -332,7 +316,7 @@ export default class App extends Component<Props> {
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
                 NeonAndroid.collectPhotos(2, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
-            case 9:
+            case Constants.OPEN_GALLERY_HORIZONTAL_PRIORITY:
                 params.galleryToCameraSwitchEnabled = true;
                 params.numberOfPhotos = 0;
                 params.galleryViewType = 1;
@@ -341,7 +325,7 @@ export default class App extends Component<Props> {
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
                 NeonAndroid.collectPhotos(2, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
-            case 10:
+            case Constants.OPEN_LIVE_PHOTOS:
                 NeonAndroid.livePhotos(JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
                 break;
 
@@ -388,54 +372,54 @@ export default class App extends Component<Props> {
         return (
             <ScrollView>
                 <View style={styles.container}>
-                    <TouchableNativeFeedback onPress={() => this.openNeon(1)}>
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_NEUTRAL)}>
                         <Text style={styles.instructions}>
                             Neutral
                         </Text>
                     </TouchableNativeFeedback>
-                    <TouchableNativeFeedback onPress={() => this.openNeon(2)}>
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_CAMERA)}>
                         <Text style={styles.instructions}>
-                            Camera Only
+                            Camera
                         </Text>
                     </TouchableNativeFeedback>
-                    <TouchableNativeFeedback onPress={() => this.openNeon(3)}>
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_CAMERA_PRIORITY)}>
                         <Text style={styles.instructions}>
                             Camera Priority
                         </Text>
                     </TouchableNativeFeedback>
-                    <TouchableNativeFeedback onPress={() => this.openNeon(4)}>
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_GALLERY_FOLDERS)}>
                         <Text style={styles.instructions}>
-                            Grid Only Structure(Folders)
+                            Gallery(Folders)
                         </Text>
                     </TouchableNativeFeedback>
-                    <TouchableNativeFeedback onPress={() => this.openNeon(5)}>
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_GALLERY_FOLDERS_PRIORITY)}>
                         <Text style={styles.instructions}>
-                            Grid Priority Structure(Folders)
+                            Gallery Priority(Folders)
                         </Text>
                     </TouchableNativeFeedback>
-                    <TouchableNativeFeedback onPress={() => this.openNeon(6)}>
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_GALLERY_FILES)}>
                         <Text style={styles.instructions}>
-                            Grid Only Structure(Files)
+                            Gallery(Files)
                         </Text>
                     </TouchableNativeFeedback>
-                    <TouchableNativeFeedback onPress={() => this.openNeon(7)}>
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_GALLERY_FILES_PRIORITY)}>
                         <Text style={styles.instructions}>
-                            Grid Priority Structure(Files)
-                        </Text>
-                    </TouchableNativeFeedback>
-
-                    <TouchableNativeFeedback onPress={() => this.openNeon(8)}>
-                        <Text style={styles.instructions}>
-                            Horizontal Only Structure(Files)
-                        </Text>
-                    </TouchableNativeFeedback>
-                    <TouchableNativeFeedback onPress={() => this.openNeon(9)}>
-                        <Text style={styles.instructions}>
-                            Horizontal Priority Structure(Files)
+                            Gallery Priority(Files)
                         </Text>
                     </TouchableNativeFeedback>
 
-                    <TouchableNativeFeedback onPress={() => this.openNeon(10)}>
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_GALLERY_HORIZONTAL)}>
+                        <Text style={styles.instructions}>
+                            Gallery(Horizontal)
+                        </Text>
+                    </TouchableNativeFeedback>
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_GALLERY_HORIZONTAL_PRIORITY)}>
+                        <Text style={styles.instructions}>
+                            Gallery Priority(Horizontal)
+                        </Text>
+                    </TouchableNativeFeedback>
+
+                    <TouchableNativeFeedback onPress={() => this.openNeon(Constants.OPEN_LIVE_PHOTOS)}>
                         <Text style={styles.instructions}>
                             Live Photos
                         </Text>
@@ -474,10 +458,29 @@ const styles = StyleSheet.create({
     list: {
         justifyContent: 'center',
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        //flexShrink: 3
+        flexWrap: 'wrap'
     }
 });
+
+let fileInfo = {
+    dateTimeTaken: "1522229825513",
+    fileCount: 0,
+    filePath: "https://images.unsplash.com/photo-1441742917377-57f78ee0e582?h=1024",
+    selected: false,
+    source: "PHONE_GALLERY",
+    type: "IMAGE",
+    latitude: "",
+    longitude: "",
+    fileName: "",
+    displayName: "",
+    fileTag: {
+        mandatory: false,
+        numberOfPhotos: 1,
+        tagId: "3",
+        tagName: "Tag3",
+        location: null,
+    }
+};
 ```
 
 ## Author:
