@@ -72,7 +72,7 @@ where:
 
 Example:
 ```
-NeonAndroid.collectPhotos(0, JSON.stringify(neonParams), (fileInfoListJson) => console.log(fileInfoListJson));
+NeonAndroid.collectPhotos(NeonAndroid.OPEN_NEUTRAL, JSON.stringify(neonParams), (fileInfoListJson) => console.log(fileInfoListJson));
 ```
 where fileInfoListJson is the json of array of fileInfo which you will get in callback, you can convert it into object using JSON.parse(fileInfoListJson).
 
