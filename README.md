@@ -67,7 +67,7 @@ where:
    - 0 - for Neutral
    - 1 - for Camera
    - 2 - for Gallery
-- neonParamsJson - Json of neonParams object
+- neonParamsJson - Json of neonParams object(can be pass as *null*)
 - callback - will return Json of array of fileInfo
 
 Example:
