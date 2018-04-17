@@ -22,6 +22,16 @@ dependencies {
     compile project(':react-native-neon-android')
 }
 ```
+3. Add the following line to `android/app/src/main/java/MainApplication.java`:
+```ruby
+@Override
+protected List<ReactPackage> getPackages() {
+   return Arrays.<ReactPackage>asList(
+       new MainReactPackage(),
+         new NeonReactPackage()
+   );
+}
+```
 ## Add the following lines to `android/app/src/AndroidManifest.xml`:
 ```ruby
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
