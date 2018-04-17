@@ -42,6 +42,9 @@ import java.util.Map;
  */
 public class NeonAndroid extends ReactContextBaseJavaModule {
 
+  private static final String ACTION_OPEN_GALLERY = "OPEN_GALLERY";
+  private static final String ACTION_OPEN_CAMERA = "OPEN_CAMERA";
+  private static final String ACTION_OPEN_NEUTRAL = "OPEN_NEUTRAL";
 
     public NeonAndroid(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -55,6 +58,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
     @Override
     public Map<String, Object> getConstants() {
         final Map<String, Object> constants = new HashMap<>();
+        constants.put(ACTION_OPEN_NEUTRAL, 0);
+        constants.put(ACTION_OPEN_CAMERA, 1);
+        constants.put(ACTION_OPEN_GALLERY, 2);
         return constants;
     }
 
