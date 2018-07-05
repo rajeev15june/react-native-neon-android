@@ -448,8 +448,8 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    private void oneStepPhotos(String category, String subCategory,  final Callback callback){
-        PhotosLibrary.startOneStepImageCollection(getCurrentActivity(), category, subCategory,  new OneStepActionListener() {
+    private void oneStepPhotos(String category, String subCategory, String camScannerApiKey,  final Callback callback){
+        PhotosLibrary.startOneStepImageCollection(getCurrentActivity(), category, subCategory, camScannerApiKey, new OneStepActionListener() {
            @Override
            public void imageCollection(NeonResponse response) {
                 callback.invoke(getImageCollection(response));
