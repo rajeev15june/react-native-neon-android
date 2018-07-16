@@ -457,6 +457,11 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
         });
     }
 
+    @ReactMethod
+    private void isCamScannerInstalled(String camScannerApiKey,  final Callback callback){
+        callback.invoke(PhotosLibrary.isCamScannerInstalled(getCurrentActivity(), camScannerApiKey));
+    }
+
     private List<FileInfo> getAlreadyAddedImagesList(String jsonData) {
 
         if (jsonData != null && jsonData != "") {
