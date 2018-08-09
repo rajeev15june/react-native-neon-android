@@ -22,7 +22,6 @@ import com.gaadi.neon.model.PhotosMode;
 import com.gaadi.neon.util.CustomParameters;
 import com.gaadi.neon.util.FileInfo;
 import com.gaadi.neon.util.NeonImagesHandler;
-import com.gaadi.neon.util.OneStepImageHandler.OneStepActionListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
