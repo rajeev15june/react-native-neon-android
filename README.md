@@ -344,11 +344,11 @@ export default class App extends Component<Props> {
     }
 
     prepareList(imageCollectionJson) {
-        if (JSON.parse(imageCollectionJson).length === 0) {
+        if (JSON.parse(imageCollectionJson).imageCollection.length === 0) {
             this.setState({alreadyAddedImages: []});
             return;
         }
-        let data = JSON.parse(imageCollectionJson);
+        let data = JSON.parse(imageCollectionJson).imageCollection;
         this.setState({
             alreadyAddedImages: data,
             images: data
