@@ -10,6 +10,7 @@ import com.gaadi.neon.enumerations.CameraOrientation;
 import com.gaadi.neon.enumerations.CameraType;
 import com.gaadi.neon.enumerations.GalleryType;
 import com.gaadi.neon.enumerations.LibraryMode;
+import com.gaadi.neon.enumerations.ResponseCode;
 import com.gaadi.neon.interfaces.ICameraParam;
 import com.gaadi.neon.interfaces.IGalleryParam;
 import com.gaadi.neon.interfaces.INeutralParam;
@@ -447,21 +448,6 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
 
     }
 
-    @ReactMethod
-    private void oneStepPhotos(String category, String subCategory, String camScannerApiKey,  final Callback callback){
-        PhotosLibrary.startOneStepImageCollection(getCurrentActivity(), category, subCategory, camScannerApiKey, new OneStepActionListener() {
-           @Override
-           public void imageCollection(NeonResponse response) {
-                callback.invoke(getImageCollection(response));
-           }
-        });
-    }
-
-    @ReactMethod
-    private void isCamScannerInstalled(String camScannerApiKey,  final Callback callback){
-        callback.invoke(PhotosLibrary.isCamScannerInstalled(getCurrentActivity(), camScannerApiKey));
-    }
-
     private List<FileInfo> getAlreadyAddedImagesList(String jsonData) {
 
         if (jsonData != null && jsonData != "") {
@@ -501,12 +487,27 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
     }
 
     private String getImageCollection(NeonResponse neonResponse) {
+        int responseCode;
+        if(neonResponse.getResponseCode() != null){
+            if(neonResponse.getResponseCode() == ResponseCode.Back){
+                responseCode = 0;
+            }else if(neonResponse.getResponseCode() == ResponseCode.Success){
+                responseCode = 1;
+            }else {
+                responseCode = 2;
+            }
+        }else {
+            responseCode = 2;
+        }
         List<FileInfo> imageCollection = new ArrayList<>();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         if (neonResponse.getImageCollection() != null) {
-             imageCollection = neonResponse.getImageCollection();
+            imageCollection = neonResponse.getImageCollection();
         }
-        return gson.toJson(imageCollection);
+        ImageCollectionResponse imageCollectionResponse = new ImageCollectionResponse();
+        imageCollectionResponse.setImageCollection(imageCollection);
+        imageCollectionResponse.setResponseCode(responseCode);
+        return gson.toJson(imageCollectionResponse);
 
     }
 }
