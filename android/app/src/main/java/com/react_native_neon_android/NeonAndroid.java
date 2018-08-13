@@ -507,7 +507,6 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
         imageCollectionResponse.setImageCollection(imageCollection);
         imageCollectionResponse.setResponseCode(responseCode);
         return gson.toJson(imageCollectionResponse);
-
     }
 }
 
