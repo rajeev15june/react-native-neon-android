@@ -30,6 +30,15 @@ public class NeonReactParams {
     private String alreadyAddedImagesJson;
     private boolean hasOnlyProfileTag;
     private String profileTagName;
+    private int compressBy;
+
+    public int getCompressBy() {
+        return compressBy;
+    }
+
+    public void setCompressBy(int compressBy) {
+        this.compressBy = compressBy;
+    }
 
     public int getRequestCode() {
         return requestCode;

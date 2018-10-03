@@ -148,6 +148,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             builder.setLocationRestrictive(params.isLocationRestrictive());
                             builder.sethideCameraButtonInNeutral(params.isHideCameraButtonInNeutral());
                             builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
+                            builder.setCompressBy(params.getCompressBy());
                             return builder.build();
                         }
                     }), new OnImageCollectionListener() {
@@ -222,6 +223,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     builder.setLocationRestrictive(params.isLocationRestrictive());
                     builder.sethideCameraButtonInNeutral(params.isHideCameraButtonInNeutral());
                     builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
+                    builder.setCompressBy(params.getCompressBy());
                     return builder.build();
                 }
             }), new OnImageCollectionListener() {
@@ -273,6 +275,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             builder.setLocationRestrictive(params.isLocationRestrictive());
                             builder.sethideCameraButtonInNeutral(params.isHideCameraButtonInNeutral());
                             builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
+                            builder.setCompressBy(params.getCompressBy());
                             return builder.build();
                         }
 
@@ -437,6 +440,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     builder.setLocationRestrictive(params.isLocationRestrictive());
                     builder.sethideCameraButtonInNeutral(params.isHideCameraButtonInNeutral());
                     builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
+                    builder.setCompressBy(params.getCompressBy());
                     return builder.build();
                 }
             });
