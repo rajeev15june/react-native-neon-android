@@ -127,7 +127,7 @@ where fileInfoListJson is the json of array of fileInfo which you will get in ca
 | profileTagName | String | null | no |  |
 | imageTagListJson | Json | null | no | Json of array of **imageTag** |
 | alreadyAddedImagesJson | Json | null | no | Json of array of already added images(**fileInfo**) |
-| compressBy | int | 100 | no | Value to which image size will compress (in between 0-100) |
+| compressBy | int | 100 | no | image quality(size) compare to original image(in between 0-100) |
 
 - fileInfo 
 ```
