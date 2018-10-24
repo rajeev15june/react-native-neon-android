@@ -4,6 +4,8 @@ import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.facebook.react.bridge.ReactContext;
 import com.gaadi.neon.PhotosLibrary;
 import com.gaadi.neon.enumerations.CameraFacing;
 import com.gaadi.neon.enumerations.CameraOrientation;
@@ -46,9 +48,11 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
   private static final String ACTION_OPEN_GALLERY = "OPEN_GALLERY";
   private static final String ACTION_OPEN_CAMERA = "OPEN_CAMERA";
   private static final String ACTION_OPEN_NEUTRAL = "OPEN_NEUTRAL";
+  private ReactContext mReactContext;
 
     public NeonAndroid(ReactApplicationContext reactContext) {
         super(reactContext);
+        mReactContext = reactContext;
     }
 
     @Override
@@ -366,12 +370,12 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
             PhotosLibrary.collectLivePhotos(params.getRequestCode(), params.getLibraryMode() == 0 ? LibraryMode.Relax : LibraryMode.Restrict, getCurrentActivity(), new OnImageCollectionListener() {
                 @Override
                 public void imageCollection(NeonResponse neonResponse) {
-
+                    callback.invoke(getImageCollection(neonResponse));
                 }
             }, new LivePhotosListener() {
                 @Override
                 public void onLivePhotoCollected(NeonResponse neonResponse) {
-                    callback.invoke(getImageCollection(neonResponse));
+                    sendEvent(mReactContext, "Live-Photo-Clicked", neonResponse);
                 }
             }, new ICameraParam() {
                 @Override
@@ -511,6 +515,13 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
         imageCollectionResponse.setImageCollection(imageCollection);
         imageCollectionResponse.setResponseCode(responseCode);
         return gson.toJson(imageCollectionResponse);
+    }
+
+    private void sendEvent(ReactContext reactContext,
+                           String eventName, NeonResponse neonResponse) {
+        reactContext
+                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit(eventName, getImageCollection(neonResponse));
     }
 }
 

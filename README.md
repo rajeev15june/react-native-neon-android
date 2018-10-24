@@ -59,22 +59,19 @@ android {
 import NeonAndroid from 'react-native-neon-android';
 ```
 ### React methods
-1. ``` NeonAndroid.collectPhotos(action, neonParamsJson, callback) ```
-2. ``` NeonAndroid.livePhotos(neonParamsJson, callback) ```
+1. ``` NeonAndroid.openNeutral(neonParamsJson, callback) ```
+2. ``` NeonAndroid.openCamera(neonParamsJson, callback) ```
+3. ``` NeonAndroid.openGallery(neonParamsJson, callback) ```
+4. ``` NeonAndroid.openLivePhotos(neonParamsJson, callback) ```
 
-where:
-- action (NeonAndroid.OPEN_NEUTRAL,NeonAndroid.OPEN_CAMERA or NeonAndroid.OPEN_GALLERY)
-   - NeonAndroid.OPEN_NEUTRAL - for Neutral
-   - NeonAndroid.OPEN_CAMERA - for Camera
-   - NeonAndroid.OPEN_GALLERY - for Gallery
 - neonParamsJson - Json of neonParams object(can be pass as **null**)
-- callback - will return Json of array of fileInfo
+- callback - will return neonResponse Json
 
 Example:
 ```
-NeonAndroid.collectPhotos(NeonAndroid.OPEN_NEUTRAL, JSON.stringify(neonParams), (fileInfoListJson) => console.log(fileInfoListJson));
+NeonAndroid.openNeutral(JSON.stringify(neonParams), (response) => console.log(response));
 ```
-where fileInfoListJson is the json of array of fileInfo which you will get in callback, you can convert it into object using JSON.parse(fileInfoListJson).
+where response is the neonResponse json which you will get in callback, you can convert it into object using JSON.parse(response).
 
 ### neonParams
 ```
@@ -255,6 +252,20 @@ export default class App extends Component<Props> {
         }
 
     }
+    
+    onEachLivePhotoClick = (response) => {
+            console.log('Live Photo ==>',response);
+    };
+    
+    componentDidMount(){
+         //use it, if event for each live photo click is required
+         NeonAndroid.addEventListener('livePhoto', this.onLivePhotoClicked);
+    }
+    
+    componentWillUnmount(){
+         //required, if event for each live photo is added
+         NeonAndroid.removeEventListener('livePhoto', this.onLivePhotoClicked)
+    }
 
     openNeon(position) {
         let params = neonParams;
@@ -263,14 +274,14 @@ export default class App extends Component<Props> {
                 params.profileTagName = 'Cover';
                 params.hasOnlyProfileTag = true;
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
-                NeonAndroid.collectPhotos(NeonAndroid.OPEN_NEUTRAL, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openNeutral(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
             case Constants.OPEN_CAMERA:
                 params.cameraOrientation = 1;
                 params.flashEnabled = true;
                 params.cameraSwitchingEnabled = true;
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
-                NeonAndroid.collectPhotos(NeonAndroid.OPEN_CAMERA, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openCamera(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
             case Constants.OPEN_CAMERA_PRIORITY:
                 params.cameraOrientation = 1;
@@ -281,7 +292,7 @@ export default class App extends Component<Props> {
                 params.numberOfPhotos = 2;
                 params.cameraToGallerySwitchEnabled = true;
                 params.imageTagListJson = JSON.stringify(imageTagList);
-                NeonAndroid.collectPhotos(NeonAndroid.OPEN_CAMERA, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openCamera(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
             case Constants.OPEN_GALLERY_FOLDERS:
                 params.galleryToCameraSwitchEnabled = false;
@@ -289,7 +300,7 @@ export default class App extends Component<Props> {
                 params.enableFolderStructure = true;
                 params.imageTagListJson = JSON.stringify(imageTagList);
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
-                NeonAndroid.collectPhotos(NeonAndroid.OPEN_GALLERY, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openGallery(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
             case Constants.OPEN_GALLERY_FOLDERS_PRIORITY:
                 params.galleryToCameraSwitchEnabled = true;
@@ -297,7 +308,7 @@ export default class App extends Component<Props> {
                 params.enableFolderStructure = true;
                 params.imageTagListJson = JSON.stringify(imageTagList);
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
-                NeonAndroid.collectPhotos(NeonAndroid.OPEN_GALLERY, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openGallery(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
             case Constants.OPEN_GALLERY_FILES:
                 params.galleryToCameraSwitchEnabled = false;
@@ -307,7 +318,7 @@ export default class App extends Component<Props> {
                 params.galleryViewType = 0;
                 params.tagEnabled = true;
                 params.imageTagListJson = JSON.stringify(imageTagList);
-                NeonAndroid.collectPhotos(NeonAndroid.OPEN_GALLERY, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openGallery(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
             case Constants.OPEN_GALLERY_FILES_PRIORITY:
                 params.galleryToCameraSwitchEnabled = true;
@@ -316,7 +327,7 @@ export default class App extends Component<Props> {
                 params.enableFolderStructure = false;
                 params.imageTagListJson = JSON.stringify(imageTagList);
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
-                NeonAndroid.collectPhotos(NeonAndroid.OPEN_GALLERY, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openGallery(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
 
             case Constants.OPEN_GALLERY_HORIZONTAL:
@@ -326,7 +337,7 @@ export default class App extends Component<Props> {
                 params.enableFolderStructure = false;
                 params.imageTagListJson = JSON.stringify(imageTagList);
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
-                NeonAndroid.collectPhotos(NeonAndroid.OPEN_GALLERY, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openGallery(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
             case Constants.OPEN_GALLERY_HORIZONTAL_PRIORITY:
                 params.galleryToCameraSwitchEnabled = true;
@@ -335,21 +346,21 @@ export default class App extends Component<Props> {
                 params.enableFolderStructure = false;
                 params.imageTagListJson = JSON.stringify(imageTagList);
                 params.alreadyAddedImagesJson = JSON.stringify(this.state.alreadyAddedImages);
-                NeonAndroid.collectPhotos(NeonAndroid.OPEN_GALLERY, JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openGallery(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
             case Constants.OPEN_LIVE_PHOTOS:
-                NeonAndroid.livePhotos(JSON.stringify(params), (imageCollectionJson) => this.prepareList(imageCollectionJson));
+                NeonAndroid.openLivePhotos(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
 
         }
     }
 
-    prepareList(imageCollectionJson) {
-        if (JSON.parse(imageCollectionJson).imageCollection.length === 0) {
+    prepareList(response) {
+        if (JSON.parse(response).imageCollection.length === 0) {
             this.setState({alreadyAddedImages: []});
             return;
         }
-        let data = JSON.parse(imageCollectionJson).imageCollection;
+        let data = JSON.parse(response).imageCollection;
         this.setState({
             alreadyAddedImages: data,
             images: data
