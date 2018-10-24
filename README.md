@@ -259,16 +259,16 @@ export default class App extends Component<Props> {
     
     componentDidMount(){
          //use it, if event for each live photo click is required
-         NeonAndroid.addEventListener('livePhoto', this.onLivePhotoClicked);
+         NeonAndroid.addEventListener('livePhoto', this.onEachLivePhotoClick);
     }
     
     componentWillUnmount(){
          //required, if event for each live photo is added
-         NeonAndroid.removeEventListener('livePhoto', this.onLivePhotoClicked)
+         NeonAndroid.removeEventListener('livePhoto', this.onEachLivePhotoClick);
     }
 
     openNeon(position) {
-        let params = neonParams;
+        let params = {};
         switch (position) {
             case Constants.OPEN_NEUTRAL:
                 params.profileTagName = 'Cover';
@@ -349,6 +349,9 @@ export default class App extends Component<Props> {
                 NeonAndroid.openGallery(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
             case Constants.OPEN_LIVE_PHOTOS:
+                params.locationRestrictive = true;
+                params.tagEnabled = true;
+                params.imageTagListJson = JSON.stringify(imageTagList);
                 NeonAndroid.openLivePhotos(JSON.stringify(params), (response) => this.prepareList(response));
                 break;
 
