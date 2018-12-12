@@ -125,6 +125,7 @@ where response is the neonResponse json which you will get in callback, you can 
 | imageTagListJson | Json | null | no | Json of array of **imageTag** |
 | alreadyAddedImagesJson | Json | null | no | Json of array of already added images(**fileInfo**) |
 | compressBy | int | 100 | no | image quality(size) compare to original image(in between 0-100) |
+| folderRestrictive | boolean | false | no | If passes true then image selection from gallery is restricted(only images taken from app are allowed) |
 
 - fileInfo 
 ```

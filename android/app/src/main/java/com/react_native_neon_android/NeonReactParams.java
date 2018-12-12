@@ -31,6 +31,7 @@ public class NeonReactParams {
     private boolean hasOnlyProfileTag;
     private String profileTagName;
     private int compressBy;
+    private boolean folderRestrictive;
 
     public int getCompressBy() {
         return compressBy;
@@ -230,5 +231,13 @@ public class NeonReactParams {
 
     public void setProfileTagName(String profileTagName) {
         this.profileTagName = profileTagName;
+    }
+
+    public boolean isFolderRestrictive() {
+        return folderRestrictive;
+    }
+
+    public void setFolderRestrictive(boolean folderRestrictive) {
+        this.folderRestrictive = folderRestrictive;
     }
 }

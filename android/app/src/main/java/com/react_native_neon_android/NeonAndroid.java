@@ -153,6 +153,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             builder.sethideCameraButtonInNeutral(params.isHideCameraButtonInNeutral());
                             builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                             builder.setCompressBy(params.getCompressBy());
+                            builder.setFolderRestrictive(params.isFolderRestrictive());
                             return builder.build();
                         }
                     }), new OnImageCollectionListener() {
@@ -228,6 +229,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     builder.sethideCameraButtonInNeutral(params.isHideCameraButtonInNeutral());
                     builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                     builder.setCompressBy(params.getCompressBy());
+                    builder.setFolderRestrictive(params.isFolderRestrictive());
                     return builder.build();
                 }
             }), new OnImageCollectionListener() {
@@ -280,6 +282,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             builder.sethideCameraButtonInNeutral(params.isHideCameraButtonInNeutral());
                             builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                             builder.setCompressBy(params.getCompressBy());
+                            builder.setFolderRestrictive(params.isFolderRestrictive());
                             return builder.build();
                         }
 
@@ -445,6 +448,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     builder.sethideCameraButtonInNeutral(params.isHideCameraButtonInNeutral());
                     builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                     builder.setCompressBy(params.getCompressBy());
+                    builder.setFolderRestrictive(params.isFolderRestrictive());
                     return builder.build();
                 }
             });
