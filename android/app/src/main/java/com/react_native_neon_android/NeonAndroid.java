@@ -26,6 +26,7 @@ import com.gaadi.neon.util.FileInfo;
 import com.gaadi.neon.util.NeonImagesHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.gaadi.neon.util.OneStepImageHandler.OneStepActionListener;
 
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -457,6 +458,16 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
         }
 
 
+    }
+
+    @ReactMethod
+    private void oneStepPhotos(String category, String subCategory, String camScannerApiKey,  final Callback callback){
+        PhotosLibrary.startOneStepImageCollection(getCurrentActivity(), category, subCategory, camScannerApiKey, new OneStepActionListener() {
+            @Override
+            public void imageCollection(NeonResponse response) {
+                callback.invoke(getImageCollection(response));
+            }
+        });
     }
 
     private List<FileInfo> getAlreadyAddedImagesList(String jsonData) {

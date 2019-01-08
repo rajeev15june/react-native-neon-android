@@ -101,9 +101,9 @@ export default class NeonAndroid {
         NeonModule.livePhotos(params, callback)
     }
 
-    // static openOneStep(cat, subCat, callback: Function){
-    //     if (!checkIfInitialized()) return;
-    //     NeonModule.oneStepPhotos(cat, subCat, callback)
-    // }
+    static openOneStep(category, subCategory, camScannerApiKey, callback: Function){
+        if (!checkIfInitialized()) return;
+        NeonModule.oneStepPhotos(category, subCategory, camScannerApiKey, callback)
+    }
 
 }
