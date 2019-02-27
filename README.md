@@ -53,6 +53,15 @@ android {
     }
 }
 ```
+## Add the following lines to generate a string for file provider authority in `android/app/build.gradle`:
+```ruby
+defaultConfig {
+        ------------------
+        ------------------
+        resValue "string", "neon_file_provider_authority", yourApplicationId + ".neon.provider"
+    }
+```
+
 ## Usage
 ### Import NeonAndroid
 ```ruby
