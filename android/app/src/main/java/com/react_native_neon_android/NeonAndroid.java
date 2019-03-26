@@ -155,6 +155,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                             builder.setCompressBy(params.getCompressBy());
                             builder.setFolderRestrictive(params.isFolderRestrictive());
+                            if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
+                                builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
+                            }
                             return builder.build();
                         }
                     }), new OnImageCollectionListener() {
@@ -231,6 +234,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                     builder.setCompressBy(params.getCompressBy());
                     builder.setFolderRestrictive(params.isFolderRestrictive());
+                    if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
+                        builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
+                    }
                     return builder.build();
                 }
             }), new OnImageCollectionListener() {
@@ -284,6 +290,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                             builder.setCompressBy(params.getCompressBy());
                             builder.setFolderRestrictive(params.isFolderRestrictive());
+                            if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
+                                builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
+                            }
                             return builder.build();
                         }
 
@@ -450,6 +459,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                     builder.setCompressBy(params.getCompressBy());
                     builder.setFolderRestrictive(params.isFolderRestrictive());
+                    if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
+                        builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
+                    }
                     return builder.build();
                 }
             });

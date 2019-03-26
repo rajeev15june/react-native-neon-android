@@ -32,6 +32,7 @@ public class NeonReactParams {
     private String profileTagName;
     private int compressBy;
     private boolean folderRestrictive;
+    private String camScannerAPIKey;
 
     public int getCompressBy() {
         return compressBy;
@@ -239,5 +240,13 @@ public class NeonReactParams {
 
     public void setFolderRestrictive(boolean folderRestrictive) {
         this.folderRestrictive = folderRestrictive;
+    }
+
+    public String getCamScannerAPIKey() {
+        return camScannerAPIKey;
+    }
+
+    public void setCamScannerAPIKey(String camScannerAPIKey) {
+        this.camScannerAPIKey = camScannerAPIKey;
     }
 }
