@@ -33,6 +33,7 @@ public class NeonReactParams {
     private int compressBy;
     private boolean folderRestrictive;
     private String folderName;
+    private String titleName;
 
     public int getCompressBy() {
         return compressBy;
@@ -248,5 +249,13 @@ public class NeonReactParams {
 
     public void setFolderName(String folderName) {
         this.folderName = folderName;
+    }
+
+    public String getTitleName() {
+        return titleName;
+    }
+
+    public void setTitleName(String titleName) {
+        this.titleName = titleName;
     }
 }

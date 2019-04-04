@@ -158,6 +158,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             if(params.getFolderName() != null && !params.getFolderName().equals("")){
                                 builder.setFolderName(params.getFolderName());
                             }
+                            if(params.getTitleName() != null && !params.getTitleName().equals("")){
+                                builder.setTitleName(params.getTitleName());
+                            }
                             return builder.build();
                         }
                     }), new OnImageCollectionListener() {
@@ -237,6 +240,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     if(params.getFolderName() != null && !params.getFolderName().equals("")){
                         builder.setFolderName(params.getFolderName());
                     }
+                    if(params.getTitleName() != null && !params.getTitleName().equals("")){
+                        builder.setTitleName(params.getTitleName());
+                    }
                     return builder.build();
                 }
             }), new OnImageCollectionListener() {
@@ -292,6 +298,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             builder.setFolderRestrictive(params.isFolderRestrictive());
                             if(params.getFolderName() != null && !params.getFolderName().equals("")){
                                 builder.setFolderName(params.getFolderName());
+                            }
+                            if(params.getTitleName() != null && !params.getTitleName().equals("")){
+                                builder.setTitleName(params.getTitleName());
                             }
                             return builder.build();
                         }
@@ -461,6 +470,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     builder.setFolderRestrictive(params.isFolderRestrictive());
                     if(params.getFolderName() != null && !params.getFolderName().equals("")){
                         builder.setFolderName(params.getFolderName());
+                    }
+                    if(params.getTitleName() != null && !params.getTitleName().equals("")){
+                        builder.setTitleName(params.getTitleName());
                     }
                     return builder.build();
                 }
