@@ -34,6 +34,7 @@ public class NeonReactParams {
     private boolean folderRestrictive;
     private String folderName;
     private String titleName;
+    private String vccId;
 
     public int getCompressBy() {
         return compressBy;
@@ -257,5 +258,13 @@ public class NeonReactParams {
 
     public void setTitleName(String titleName) {
         this.titleName = titleName;
+    }
+
+    public String getVccId() {
+        return vccId;
+    }
+
+    public void setVccId(String vccId) {
+        this.vccId = vccId;
     }
 }

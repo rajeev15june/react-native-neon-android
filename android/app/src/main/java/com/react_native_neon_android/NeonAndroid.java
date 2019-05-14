@@ -155,6 +155,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                             builder.setCompressBy(params.getCompressBy());
                             builder.setFolderRestrictive(params.isFolderRestrictive());
+                            builder.setVccIdAvailable(params.getVccId());
                             if(params.getFolderName() != null && !params.getFolderName().equals("")){
                                 builder.setFolderName(params.getFolderName());
                             }
@@ -237,6 +238,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                     builder.setCompressBy(params.getCompressBy());
                     builder.setFolderRestrictive(params.isFolderRestrictive());
+                    builder.setVccIdAvailable(params.getVccId());
                     if(params.getFolderName() != null && !params.getFolderName().equals("")){
                         builder.setFolderName(params.getFolderName());
                     }
@@ -296,6 +298,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                             builder.setCompressBy(params.getCompressBy());
                             builder.setFolderRestrictive(params.isFolderRestrictive());
+                            builder.setVccIdAvailable(params.getVccId());
                             if(params.getFolderName() != null && !params.getFolderName().equals("")){
                                 builder.setFolderName(params.getFolderName());
                             }
@@ -468,6 +471,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     builder.setHideGalleryButtonInNeutral(params.isHideGalleryButtonInNeutral());
                     builder.setCompressBy(params.getCompressBy());
                     builder.setFolderRestrictive(params.isFolderRestrictive());
+                    builder.setVccIdAvailable(params.getVccId());
                     if(params.getFolderName() != null && !params.getFolderName().equals("")){
                         builder.setFolderName(params.getFolderName());
                     }
