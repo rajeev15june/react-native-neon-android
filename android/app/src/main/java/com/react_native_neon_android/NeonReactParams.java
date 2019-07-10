@@ -35,6 +35,7 @@ public class NeonReactParams {
     private String folderName;
     private String titleName;
     private String vccId;
+    private int clickMinimumNumberOfImages;
 
     public int getCompressBy() {
         return compressBy;
@@ -266,5 +267,13 @@ public class NeonReactParams {
 
     public void setVccId(String vccId) {
         this.vccId = vccId;
+    }
+
+    public int getClickMinimumNumberOfImages() {
+        return clickMinimumNumberOfImages;
+    }
+
+    public void setClickMinimumNumberOfImages(int clickMinimumNumberOfImages) {
+        this.clickMinimumNumberOfImages = clickMinimumNumberOfImages;
     }
 }
