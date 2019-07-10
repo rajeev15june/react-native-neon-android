@@ -162,7 +162,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             if(params.getTitleName() != null && !params.getTitleName().equals("")){
                                 builder.setTitleName(params.getTitleName());
                             }
-                            builder.setMinimumNumberOfImages(params.getClickMinimumNumberOfImages());
+                            builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
                             return builder.build();
                         }
                     }), new OnImageCollectionListener() {
@@ -246,7 +246,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     if(params.getTitleName() != null && !params.getTitleName().equals("")){
                         builder.setTitleName(params.getTitleName());
                     }
-                    builder.setMinimumNumberOfImages(params.getClickMinimumNumberOfImages());
+                    builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
                     return builder.build();
                 }
             }), new OnImageCollectionListener() {
@@ -307,7 +307,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             if(params.getTitleName() != null && !params.getTitleName().equals("")){
                                 builder.setTitleName(params.getTitleName());
                             }
-                            builder.setMinimumNumberOfImages(params.getClickMinimumNumberOfImages());
+                            builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
                             return builder.build();
                         }
 
@@ -481,7 +481,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     if(params.getTitleName() != null && !params.getTitleName().equals("")){
                         builder.setTitleName(params.getTitleName());
                     }
-                    builder.setMinimumNumberOfImages(params.getClickMinimumNumberOfImages());
+                    builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
                     return builder.build();
                 }
             });
