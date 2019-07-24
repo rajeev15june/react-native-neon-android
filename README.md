@@ -128,7 +128,7 @@ where response is the neonResponse json which you will get in callback, you can 
 | folderRestrictive | boolean | false | no | If passes true then image selection from gallery is restricted(only images taken from app are allowed) |
 | folderName | String | null | no | If passes then images will be saved in a separate folder(folderName) |
 | titleName | String | null | no | If passes then title of neutral screen will be changed accordingly |
-
+| showTagImage | boolean | false | no | If true then tag preview will show on camera screen |
 - fileInfo 
 ```
 {
