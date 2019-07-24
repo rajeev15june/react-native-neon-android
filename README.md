@@ -148,6 +148,7 @@ where response is the neonResponse json which you will get in callback, you can 
         tagId: "3",
         tagName: "Tag3",
         location: null,
+        tagPreviewUrl: "https://----"
     }
 };
 ```
@@ -175,6 +176,7 @@ Details of fileInfo:
     tagId: "1",
     tagName: "Tag1",
     location: null,
+    tagPreviewUrl: "https://----"
 };
 ```
 Details of imageTag:
@@ -207,6 +209,7 @@ let imageTagList = [
         tagId: "1",
         tagName: "Tag1",
         location: null,
+        tagPreviewUrl: "https://----"
     },
 
     {
@@ -215,6 +218,7 @@ let imageTagList = [
         tagId: "2",
         tagName: "Tag2",
         location: null,
+        tagPreviewUrl: "https://----"
     }
 
 ];
@@ -508,6 +512,7 @@ let fileInfo = {
         tagId: "3",
         tagName: "Tag3",
         location: null,
+        tagPreviewUrl: "https://----"
     }
 };
 ```

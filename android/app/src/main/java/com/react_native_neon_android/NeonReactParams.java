@@ -36,6 +36,7 @@ public class NeonReactParams {
     private String titleName;
     private String vccId;
     private int minimumNumberOfImagesRequired;
+    private boolean showTagImage;
 
     public int getCompressBy() {
         return compressBy;
@@ -275,5 +276,13 @@ public class NeonReactParams {
 
     public void setMinimumNumberOfImagesRequired(int minimumNumberOfImagesRequired) {
         this.minimumNumberOfImagesRequired = minimumNumberOfImagesRequired;
+    }
+
+    public boolean isShowTagImage() {
+        return showTagImage;
+    }
+
+    public void setShowTagImage(boolean showTagImage) {
+        this.showTagImage = showTagImage;
     }
 }

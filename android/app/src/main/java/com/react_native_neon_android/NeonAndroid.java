@@ -163,6 +163,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                                 builder.setTitleName(params.getTitleName());
                             }
                             builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
+                            builder.showTagImagePreview(params.isShowTagImage());
                             return builder.build();
                         }
                     }), new OnImageCollectionListener() {
@@ -247,6 +248,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                         builder.setTitleName(params.getTitleName());
                     }
                     builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
+                    builder.showTagImagePreview(params.isShowTagImage());
                     return builder.build();
                 }
             }), new OnImageCollectionListener() {
@@ -308,6 +310,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                                 builder.setTitleName(params.getTitleName());
                             }
                             builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
+                            builder.showTagImagePreview(params.isShowTagImage());
                             return builder.build();
                         }
 
@@ -482,6 +485,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                         builder.setTitleName(params.getTitleName());
                     }
                     builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
+                    builder.showTagImagePreview(params.isShowTagImage());
                     return builder.build();
                 }
             });
