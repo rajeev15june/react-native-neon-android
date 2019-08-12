@@ -37,6 +37,7 @@ public class NeonReactParams {
     private String vccId;
     private int minimumNumberOfImagesRequired;
     private boolean showTagImage;
+    private String camScannerAPIKey;
 
     public int getCompressBy() {
         return compressBy;
@@ -284,5 +285,13 @@ public class NeonReactParams {
 
     public void setShowTagImage(boolean showTagImage) {
         this.showTagImage = showTagImage;
+    }
+
+    public String getCamScannerAPIKey() {
+        return camScannerAPIKey;
+    }
+
+    public void setCamScannerAPIKey(String camScannerAPIKey) {
+        this.camScannerAPIKey = camScannerAPIKey;
     }
 }

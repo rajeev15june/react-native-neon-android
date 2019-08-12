@@ -164,6 +164,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             }
                             builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
                             builder.showTagImagePreview(params.isShowTagImage());
+                            if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
+                                builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
+                            }
                             return builder.build();
                         }
                     }), new OnImageCollectionListener() {
@@ -249,6 +252,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     }
                     builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
                     builder.showTagImagePreview(params.isShowTagImage());
+                    if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
+                        builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
+                    }
                     return builder.build();
                 }
             }), new OnImageCollectionListener() {
@@ -311,6 +317,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             }
                             builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
                             builder.showTagImagePreview(params.isShowTagImage());
+                            if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
+                                builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
+                            }
                             return builder.build();
                         }
 
@@ -486,6 +495,9 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     }
                     builder.setMinimumNumberOfImages(params.getMinimumNumberOfImagesRequired());
                     builder.showTagImagePreview(params.isShowTagImage());
+                    if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
+                        builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
+                    }
                     return builder.build();
                 }
             });
