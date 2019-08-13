@@ -167,6 +167,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
                                 builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
                             }
+                            builder.setShowPreviewForEachImage(params.isShowPreviewForEachImage());
                             return builder.build();
                         }
                     }), new OnImageCollectionListener() {
@@ -255,6 +256,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
                         builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
                     }
+                    builder.setShowPreviewForEachImage(params.isShowPreviewForEachImage());
                     return builder.build();
                 }
             }), new OnImageCollectionListener() {
@@ -320,6 +322,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                             if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
                                 builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
                             }
+                            builder.setShowPreviewForEachImage(params.isShowPreviewForEachImage());
                             return builder.build();
                         }
 
@@ -498,6 +501,7 @@ public class NeonAndroid extends ReactContextBaseJavaModule {
                     if(params.getCamScannerAPIKey() != null && !params.getCamScannerAPIKey().equals("")){
                         builder.setCamScannerAPIKey(params.getCamScannerAPIKey());
                     }
+                    builder.setShowPreviewForEachImage(params.isShowPreviewForEachImage());
                     return builder.build();
                 }
             });

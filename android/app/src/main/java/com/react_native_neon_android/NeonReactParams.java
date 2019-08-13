@@ -38,6 +38,7 @@ public class NeonReactParams {
     private int minimumNumberOfImagesRequired;
     private boolean showTagImage;
     private String camScannerAPIKey;
+    private boolean showPreviewForEachImage;
 
     public int getCompressBy() {
         return compressBy;
@@ -293,5 +294,13 @@ public class NeonReactParams {
 
     public void setCamScannerAPIKey(String camScannerAPIKey) {
         this.camScannerAPIKey = camScannerAPIKey;
+    }
+
+    public boolean isShowPreviewForEachImage() {
+        return showPreviewForEachImage;
+    }
+
+    public void setShowPreviewForEachImage(boolean showPreviewForEachImage) {
+        this.showPreviewForEachImage = showPreviewForEachImage;
     }
 }
